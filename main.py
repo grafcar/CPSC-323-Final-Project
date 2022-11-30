@@ -25,8 +25,10 @@ def cleanup_file(file_name):
         content = result.strip().replace("\n\n","\n")
         result = content.replace("  "," ")
         content = result
+
     return result
 
 formated_file = cleanup_file("finalp1.txt")
 new_file = open("finalp2.txt","w")
 new_file.write(formated_file)
+new_file.close()
