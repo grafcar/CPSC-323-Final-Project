@@ -1,0 +1,59 @@
+rules = ["prog -> Program identifier ; var declist begin statlist end.",
+		"identifier -> letter word",
+		"word -> letter word | digit word",
+        "declist -> dec : type ;",
+        "dec -> identifier , dec | identifier",
+        "type -> integer",
+        "statlist -> stat",
+        "stat -> write | assign",
+        'write -> print ( "value=" , identifier ) ;',
+        "assign -> identifier = expr ;",
+        "expr -> expr + expr | expr - expr | term",
+        "term -> term * factor | term / factor | factor",
+        "factor -> identifier | number | ( expr )",
+        "number -> sign moredigits | moredigits",
+        "moredigits -> digit moredigits",
+        "sign -> + | -",
+        "digit -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9",
+        "letter -> a | b | c | d | f"
+		]
+nonterm_userdef = ["prog","identifier","word","declist","dec","type","statlist","stat","write","assign","expr","term","factor","number","moredigits","sign","digit","letter"]
+term_userdef = ["Program",";","var","begin","end.",":","*","/","-","+","(",")","print",",","\"value=\"","0","1","2","3","4","5","6","7","8" , "9" , "a" , "b" , "c" , "d" , "f","integer","="]
+start_symbol = nonterm_userdef[0]
+
+0]
+[]
+[0, 'program', 2]
+[0, 'program', 2]
+[0, 'program']
+[0, 'program', 2, 'f', 9]
+[0, 'program', 2, 'f', 9]
+18
+18
+[0, 'program', 2]
+[0, 'program', 2, 'letter', 4]
+[0, 'program', 2, 'letter']
+[0, 'program', 2, 'letter', 4, '2', 16]
+[0, 'program', 2, 'letter', 4, '2', 16]
+18
+18
+[0, 'program', 2, 'letter', 4]
+[0, 'program', 2, 'letter', 4, 'digit', 13]
+[0, 'program', 2, 'letter', 4, 'digit']
+[0, 'program', 2, 'letter', 4, 'digit', 13, '0', 14]
+[0, 'program', 2, 'letter', 4, 'digit', 13, '0', 14]
+18
+18
+[0, 'program', 2, 'letter', 4, 'digit', 13]
+[0, 'program', 2, 'letter', 4, 'digit', 13, 'digit', 13]
+[0, 'program', 2, 'letter', 4, 'digit', 13, 'digit']
+[0, 'program', 2, 'letter', 4, 'digit', 13, 'digit', 13, '2', 16]
+[0, 'program', 2, 'letter', 4, 'digit', 13, 'digit', 13, '2', 16]
+18
+18
+[0, 'program', 2, 'letter', 4, 'digit', 13, 'digit', 13]
+[0, 'program', 2, 'letter', 4, 'digit', 13, 'digit', 13, 'digit', 13]
+[0, 'program', 2, 'letter', 4, 'digit', 13, 'digit', 13, 'digit']
+[0, 'program', 2, 'letter', 4, 'digit', 13, 'digit', 13, 'digit', 13, '2', 16]
+[0, 'program', 2, 'letter', 4, 'digit', 13, 'digit', 13, 'digit', 13, '2', 16]
+REJECT
